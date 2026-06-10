@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kata Sweet Shop - Premium Sweets & Confectionery</title>
+    <link rel="stylesheet" href="landing-page.css">
+</head>
+<body>
+    <!-- Header Section -->
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>🍭 Kata Sweet Shop</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <button class="btn-login" (click)="navigateToLogin()">Login</button>
+            <button class="btn-register" (click)="navigateToRegister()">Register</button>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2>Welcome to Kata Sweet Shop</h2>
+        <p>Discover the finest collection of premium sweets, chocolates, and confectionery items</p>
+        <div class="hero-buttons">
+            <button class="btn-primary" (click)="navigateToLogin()">Shop Now</button>
+            <button class="btn-secondary" (click)="navigateToLogin()">View Menu</button>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products Section -->
+<section class="featured-products" id="products">
+    <div class="container">
+        <h2>Featured Sweets</h2>
+        <div class="products-grid">
+            <div class="product-card" (click)="viewProduct('chocolate')">
+                <div class="product-image">🍫</div>
+                <h3>Premium Chocolates</h3>
+                <p>Rich, creamy chocolates made with finest cocoa</p>
+                <div class="price">$12.99</div>
+                <button class="btn-add-cart" (click)="addToCart('chocolate', $event)">Add to Cart</button>
+            </div>
+            <div class="product-card" (click)="viewProduct('cupcake')">
+                <div class="product-image">🧁</div>
+                <h3>Cupcakes</h3>
+                <p>Freshly baked cupcakes with delicious frosting</p>
+                <div class="price">$8.99</div>
+                <button class="btn-add-cart" (click)="addToCart('cupcake', $event)">Add to Cart</button>
+            </div>
+            <div class="product-card" (click)="viewProduct('cookie')">
+                <div class="product-image">🍪</div>
+                <h3>Cookies</h3>
+                <p>Crispy and chewy cookies in various flavors</p>
+                <div class="price">$6.99</div>
+                <button class="btn-add-cart" (click)="addToCart('cookie', $event)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+    <div class="container">
+        <h2>About Kata Sweet Shop</h2>
+        <p>Since 1995, Kata Sweet Shop has been serving the finest quality sweets and confectionery items. Our commitment to quality ingredients and traditional recipes makes us the premier destination for sweet lovers.</p>
+        <div class="about-buttons">
+            <button class="btn-primary" (click)="navigateToAbout()">Learn More</button>
+            <button class="btn-secondary" (click)="navigateToContact()">Contact Us</button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" id="contact">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🍭 Kata Sweet Shop</h3>
+                <p>Your trusted partner for premium sweets</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home" (click)="scrollToSection('home')">Home</a></li>
+                    <li><a href="#products" (click)="scrollToSection('products')">Products</a></li>
+                    <li><a href="#about" (click)="scrollToSection('about')">About</a></li>
+                    <li><a (click)="navigateToLogin()" style="cursor: pointer;">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📧 info@katasweetshop.com</p>
+                <p>📞 +1 (555) 123-4567</p>
+                <p>📍 123 Sweet Street, Candy City</p>
+                <button class="btn-contact" (click)="navigateToContact()">Get in Touch</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kata Sweet Shop. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Toast Notification for Cart Actions -->
+<div *ngIf="showToast" class="toast" [class.success]="toastType === 'success'" [class.error]="toastType === 'error'">
+    {{ toastMessage }}
+</div>
+   
+</body>
+</html>
